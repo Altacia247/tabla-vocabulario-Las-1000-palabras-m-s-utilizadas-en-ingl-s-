@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mi vocabulario · 1000 palabras</title>
+<meta name="theme-color" content="#5B4BDB">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>
+:root{
+  --bg:#F5F3FF;--surface:#FFFFFF;--field:#F8F7FF;--fg:#1E1B3A;--muted:#69668F;--line:#E3DFF7;
+  --accent:#5B4BDB;--accent-2:#B94FD0;--accent-ink:#FFFFFF;--accent-soft:#ECE8FF;--known:#0E8F62;--known-soft:#DDF5EA;--danger:#C0352B;
+  --shadow:0 1px 2px rgba(40,30,110,.06),0 12px 28px -16px rgba(40,30,110,.25);
+  --f-display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;--f-body:'Figtree','Segoe UI',system-ui,sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){ --bg:#0E0D1A;--surface:#181730;--field:#12112A;--fg:#ECEAFB;--muted:#9A97C4;--line:#2C2A52;
+  --accent:#9B8CFF;--accent-2:#E27BEA;--accent-ink:#13112B;--accent-soft:#25214F;--known:#4FD1A0;--known-soft:#12332A;--danger:#FF8E83;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7);color-scheme:dark; }}
+:root[data-theme="dark"]{ --bg:#0E0D1A;--surface:#181730;--field:#12112A;--fg:#ECEAFB;--muted:#9A97C4;--line:#2C2A52;
+  --accent:#9B8CFF;--accent-2:#E27BEA;--accent-ink:#13112B;--accent-soft:#25214F;--known:#4FD1A0;--known-soft:#12332A;--danger:#FF8E83;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7);color-scheme:dark; }
+*{box-sizing:border-box}
+body{
+  background:radial-gradient(760px 380px at 92% -60px,rgba(185,79,208,.16),transparent 65%),radial-gradient(820px 420px at -8% -80px,rgba(91,75,219,.20),transparent 65%),var(--bg);
+  background-repeat:no-repeat;color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.5;
+  padding-block:36px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+.wrap{max-width:1180px;margin:0 auto}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
+
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);padding:6px 12px;border-radius:99px}
+h1{font-family:var(--f-display);font-size:clamp(2.1rem,6vw,3.6rem);line-height:1.02;letter-spacing:-.03em;font-weight:700;margin:16px 0 0;max-width:18ch;text-wrap:balance;
+  background:linear-gradient(120deg,var(--fg) 30%,var(--accent) 75%,var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);max-width:60ch;margin:14px 0 0;font-size:1.05rem}
+.hero-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px);gap:24px 40px;align-items:end}
+.progress{padding:18px 20px}
+.progress p{margin:0 0 10px;font-size:.95rem;color:var(--muted)}
+.progress b{font-family:var(--f-display);font-size:1.9rem;color:var(--fg);font-weight:700;margin-right:4px}
+.bar{height:10px;background:var(--accent-soft);border-radius:99px;overflow:hidden}
+.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:99px;transition:width .35s ease}
+
+.backup{margin-top:28px;padding:22px 24px}
+.backup h2{font-family:var(--f-display);font-size:1.3rem;margin:0;letter-spacing:-.01em}
+.backup .intro{margin:6px 0 0;color:var(--muted);max-width:70ch}
+.bk-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.bk{padding:16px;border:1px dashed var(--line);border-radius:14px;background:var(--field);display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.bk h3{margin:0;font-size:1rem}
+.bk p{margin:0;color:var(--muted);font-size:.9rem}
+.bk code{font-family:var(--f-mono);font-size:.82rem;background:var(--accent-soft);color:var(--accent);padding:1px 6px;border-radius:6px}
+.bk .btn{margin-top:auto}
+.last{margin:14px 0 0;font-size:.85rem;color:var(--muted);font-family:var(--f-mono)}
+details{margin-top:10px;color:var(--muted);font-size:.9rem}
+summary{cursor:pointer;color:var(--accent);font-weight:600}
+details p{margin:8px 0 0;max-width:72ch}
+
+.toolbar{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px 14px;margin-top:28px;padding:14px;background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);z-index:5}
+@media (min-width:860px){.toolbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 10px)}}
+.field{display:flex;flex-direction:column;gap:4px;flex:1 1 170px;min-width:0}
+.field span{font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.field input,.field select{font:inherit;color:var(--fg);background:var(--field);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-width:0;width:100%}
+.tools{display:flex;flex-wrap:wrap;align-items:center;gap:10px;flex:1 1 100%}
+.btn{font:inherit;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;color:var(--accent-ink);background:linear-gradient(135deg,var(--accent),var(--accent-2));border:0;border-radius:10px;padding:10px 16px;transition:transform .15s,box-shadow .15s,opacity .15s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 18px -8px var(--accent)}
+.btn:disabled{opacity:.5;cursor:default;transform:none;box-shadow:none}
+.btn.ghost{color:var(--fg);background:transparent;border:1px solid var(--line)}
+.btn.ghost:hover{border-color:var(--accent);box-shadow:none}
+.btn.small{padding:6px 10px;font-size:.85rem}
+.btn svg{flex:none}
+.save{margin-left:auto;font-size:.82rem;color:var(--muted);font-family:var(--f-mono);display:inline-flex;align-items:center;gap:8px}
+.save:not(:empty)::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--known)}
+.save.err{color:var(--danger)}.save.err::before{background:var(--danger)}
+.status{min-height:1.4em;margin:14px 4px 0;color:var(--muted);font-size:.92rem}
+.status.err{color:var(--danger)}
+.note{color:var(--muted);font-size:.85rem;margin:6px 4px 0;max-width:78ch}
+.swatch{display:inline-block;width:.9em;height:.9em;border-radius:3px;background:var(--accent-soft);border:1px solid var(--accent);vertical-align:-.1em}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.head,.row{display:grid;grid-template-columns:48px 150px minmax(0,1fr) minmax(0,1fr) minmax(0,1.5fr) 96px;gap:8px 12px;align-items:start}
+.head{margin-top:22px;padding:0 16px;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+#rows{margin-top:8px;display:flex;flex-direction:column;gap:10px}
+.row{padding:12px 16px;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 1px 2px rgba(40,30,110,.04);transition:border-color .2s,box-shadow .2s}
+.row:hover{border-color:color-mix(in srgb,var(--accent) 45%,var(--line));box-shadow:var(--shadow)}
+.row.done{border-color:color-mix(in srgb,var(--known) 55%,var(--line));background:linear-gradient(90deg,var(--known-soft),var(--surface) 38%)}
+.rk{color:var(--muted);font-size:.78rem;padding-top:10px}
+.wd{display:flex;align-items:center;gap:8px;min-width:0;padding-top:2px}
+.word{font-family:var(--f-display);font-size:1.35rem;font-weight:600;overflow-wrap:anywhere;letter-spacing:-.01em}
+.row.abbr .word{text-decoration:underline dotted;text-decoration-color:var(--muted);text-underline-offset:5px}
+.row.name .word{font-style:italic}
+.row.done .word::after{content:" \2713";color:var(--known);font-size:.9em}
+.say{flex:none;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;color:var(--accent);background:var(--accent-soft);border:0;border-radius:10px;cursor:pointer;transition:transform .15s}
+.say:hover{transform:scale(1.08)}
+.cell{display:block;min-width:0}
+.lab{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.cell input,.cell textarea{display:block;width:100%;min-width:0;font:inherit;color:var(--fg);background:var(--field);border:1px solid var(--line);border-radius:10px;padding:9px 11px;transition:border-color .15s,box-shadow .15s}
+.cell input:focus,.cell textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);outline:none}
+.cell textarea{resize:vertical;min-height:4.2em;field-sizing:content}
+.cell.auto input,.cell.auto textarea{background:var(--accent-soft);border-color:var(--accent)}
+.act{display:flex;flex-direction:column;gap:6px;align-items:stretch}
+#empty{margin-top:28px;color:var(--muted);text-align:center}
+
+@media (max-width:859px){
+  .hero-row,.bk-grid{grid-template-columns:1fr}
+  .head{display:none}
+  .row{grid-template-columns:36px minmax(0,1fr) auto}
+  .rk{grid-column:1}.wd{grid-column:2}
+  .act{grid-column:3;grid-row:1;flex-direction:row}
+  .cell{grid-column:1/-1}
+  .lab{position:static;width:auto;height:auto;overflow:visible;clip:auto;display:block;margin-bottom:4px;font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="hero-row">
+      <div>
+        <span class="eyebrow">Inglés → Español · 1000 palabras</span>
+        <h1>Una asociación para cada palabra</h1>
+        <p class="lead">Escribe la pronunciación, la traducción y una asociación que te ayude a recordar cada palabra. Todo se guarda solo en este navegador.</p>
+      </div>
+      <div class="progress card">
+        <p><b id="count">0</b> de 1000 palabras completas</p>
+        <div class="bar" aria-hidden="true"><span id="bar"></span></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="backup card" aria-labelledby="bk-title">
+    <h2 id="bk-title">Respaldo de tu progreso</h2>
+    <p class="intro">Tu avance se guarda en este navegador y en este dispositivo. Para no perderlo (o para llevarlo a otro dispositivo), descarga una copia y cárgala cuando la necesites.</p>
+    <div class="bk-grid">
+      <div class="bk">
+        <h3>1. Descargar progreso</h3>
+        <p>Crea un archivo <code>.json</code> con todo lo que has escrito, por ejemplo <code>progreso-vocabulario-2026-10-30.json</code>. Se guarda en tu carpeta de <b>Descargas</b>. Guárdalo en un lugar seguro: Drive, tu correo o WhatsApp.</p>
+        <button type="button" class="btn" id="export-btn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 20h16"/></svg> Descargar progreso</button>
+      </div>
+      <div class="bk">
+        <h3>2. Cargar progreso</h3>
+        <p>Elige un archivo <code>.json</code> que descargaste antes. Las palabras del archivo reemplazan a las que tengas con el mismo nombre; las demás <b>no se tocan</b>. Úsalo para recuperar tu avance o pasarlo a otro dispositivo.</p>
+        <button type="button" class="btn ghost" id="import-btn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3m0 0L8 7m4-4 4 4M4 20h16"/></svg> Cargar progreso</button>
+        <input type="file" id="import-file" accept=".json,application/json" hidden>
+      </div>
+    </div>
+    <p class="last" id="last-backup"></p>
+    <details>
+      <summary>¿Qué es un archivo .json?</summary>
+      <p>Es un archivo de texto normal que guarda tus datos de forma ordenada. Puedes abrirlo con el Bloc de notas para verlo, pero no lo edites a mano: si cambias algo mal, la página no podrá leerlo. Descarga uno nuevo cada vez que termines de estudiar.</p>
+    </details>
+  </section>
+
+  <div class="toolbar" role="search">
+    <label class="field"><span>Buscar</span><input id="q" type="search" placeholder="Palabra, número o algo que escribiste" autocomplete="off"></label>
+    <label class="field"><span>Grupo</span><select id="group"><option value="all">Todas (1–1000)</option><option value="0" selected>1–100</option><option value="1">101–200</option><option value="2">201–300</option><option value="3">301–400</option><option value="4">401–500</option><option value="5">501–600</option><option value="6">601–700</option><option value="7">701–800</option><option value="8">801–900</option><option value="9">901–1000</option></select></label>
+    <label class="field"><span>Mostrar</span>
+      <select id="state"><option value="all">Todas</option><option value="todo">Con algo vacío</option><option value="done">Completas</option></select>
+    </label>
+    <div class="tools">
+      <button type="button" class="btn" id="auto-all" hidden>Autocompletar las vacías</button>
+      <button type="button" class="btn ghost" id="stop" hidden>Detener</button>
+      <span class="save" id="save" role="status" aria-live="polite"></span>
+    </div>
+  </div>
+  <p class="status" id="status" role="status" aria-live="polite"></p>
+  <p class="note" id="note-auto" hidden>El autocompletado nunca borra lo que escribiste. Las casillas con <span class="swatch"></span> fondo de color son sugerencias: revísalas, edítalas o pulsa Aceptar.</p>
+
+  <div class="head" id="head" aria-hidden="true">
+    <span>#</span><span>Palabra</span><span>Pronunciación</span><span>Traducción</span><span>Asociación</span><span></span>
+  </div>
+  <div id="rows"></div>
+  <p id="empty" hidden>Ninguna palabra coincide con lo que buscas.</p>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var WORDS = ["the","of","and","to","a","in","for","is","on","that","by","this","with","i","you","it","not","or","be","are","from","at","as","your","all","have","new","more","an","was","we","will","home","can","us","about","if","page","my","has","search","free","but","our","one","other","do","no","information","time","they","site","he","up","may","what","which","their","news","out","use","any","there","see","only","so","his","when","contact","here","business","who","web","also","now","help","get","pm","view","online","c","e","first","am","been","would","how","were","me","s","services","some","these","click","its","like","service","x","than","find","price","date","back","top","people","had","list","name","just","over","state","year","day","into","email","two","health","n","world","re","next","used","go","b","work","last","most","products","music","buy","data","make","them","should","product","system","post","her","city","t","add","policy","number","such","please","available","copyright","support","message","after","best","software","then","jan","good","video","well","d","where","info","rights","public","books","high","school","through","m","each","links","she","review","years","order","very","privacy","book","items","company","r","read","group","need","many","user","said","de","does","set","under","general","research","university","january","mail","full","map","reviews","program","life","know","games","way","days","management","p","part","could","great","united","hotel","real","f","item","international","center","ebay","must","store","travel","comments","made","development","report","off","member","details","line","terms","before","hotels","did","send","right","type","because","local","those","using","results","office","education","national","car","design","take","posted","internet","address","community","within","states","area","want","phone","dvd","shipping","reserved","subject","between","forum","family","l","long","based","w","code","show","o","even","black","check","special","prices","website","index","being","women","much","sign","file","link","open","today","technology","south","case","project","same","pages","uk","version","section","own","found","sports","house","related","security","both","g","county","american","photo","game","members","power","while","care","network","down","computer","systems","three","total","place","end","following","download","h","him","without","per","access","think","north","resources","current","posts","big","media","law","control","water","history","pictures","size","art","personal","since","including","guide","shop","directory","board","location","change","white","text","small","rating","rate","government","children","during","usa","return","students","v","shopping","account","times","sites","level","digital","profile","previous","form","events","love","old","john","main","call","hours","image","department","title","description","non","k","y","insurance","another","why","shall","property","class","cd","still","money","quality","every","listing","content","country","private","little","visit","save","tools","low","reply","customer","december","compare","movies","include","college","value","article","york","man","card","jobs","provide","j","food","source","author","different","press","u","learn","sale","around","print","course","job","canada","process","teen","room","stock","training","too","credit","point","join","science","men","categories","advanced","west","sales","look","english","left","team","estate","box","conditions","select","windows","photos","gay","thread","week","category","note","live","large","gallery","table","register","however","june","october","november","market","library","really","action","start","series","model","features","air","industry","plan","human","provided","tv","yes","required","second","hot","accessories","cost","movie","forums","march","la","september","better","say","questions","july","yahoo","going","medical","test","friend","come","dec","server","pc","study","application","cart","staff","articles","san","feedback","again","play","looking","issues","april","never","users","complete","street","topic","comment","financial","things","working","against","standard","tax","person","below","mobile","less","got","blog","party","payment","equipment","login","student","let","programs","offers","legal","above","recent","park","stores","side","act","problem","red","give","memory","performance","social","q","august","quote","language","story","sell","options","experience","rates","create","key","body","young","america","important","field","few","east","paper","single","ii","age","activities","club","example","girls","additional","password","z","latest","something","road","gift","question","changes","night","ca","hard","texas","oct","pay","four","poker","status","browse","issue","range","building","seller","court","february","always","result","audio","light","write","war","nov","offer","blue","groups","al","easy","given","files","event","release","analysis","request","fax","china","making","picture","needs","possible","might","professional","yet","month","major","star","areas","future","space","committee","hand","sun","cards","problems","london","washington","meeting","rss","become","interest","id","child","keep","enter","california","share","similar","garden","schools","million","added","reference","companies","listed","baby","learning","energy","run","delivery","net","popular","term","film","stories","put","computers","journal","reports","co","try","welcome","central","images","president","notice","original","head","radio","until","cell","color","self","council","away","includes","track","australia","discussion","archive","once","others","entertainment","agreement","format","least","society","months","log","safety","friends","sure","faq","trade","edition","cars","messages","marketing","tell","further","updated","association","able","having","provides","david","fun","already","green","studies","close","common","drive","specific","several","gold","feb","living","sep","collection","called","short","arts","lot","ask","display","limited","powered","solutions","means","director","daily","beach","past","natural","whether","due","et","electronics","five","upon","period","planning","database","says","official","weather","mar","land","average","done","technical","window","france","pro","region","island","record","direct","microsoft","conference","environment","records","st","district","calendar","costs","style","url","front","statement","update","parts","aug","ever","downloads","early","miles","sound","resource","present","applications","either","ago","document","word","works","material","bill","apr","written","talk","federal","hosting","rules","final","adult","tickets","thing","centre","requirements","via","cheap","kids","finance","true","minutes","else","mark","third","rock","gifts","europe","reading","topics","bad","individual","tips","plus","auto","cover","usually","edit","together","videos","percent","fast","function","fact","unit","getting","global","tech","meet","far","economic","en","player","projects","lyrics","often","subscribe","submit","germany","amount","watch","included","feel","though","bank","risk","thanks","everything","deals","various","words","linux","jul","production","commercial","james","weight","town","heart","advertising","received","choose","treatment","newsletter","archives","points","knowledge","magazine","error","camera","jun","girl","currently","construction","toys","registered","clear","golf","receive","domain","methods","chapter","makes","protection","policies","loan","wide","beauty","manager","india","position","taken","sort","listings","models","michael","known","half","cases","step","engineering","florida","simple","quick","none","wireless","license","paul","friday","lake","whole","annual","published","later","basic","sony","shows","corporate","google","church","method","purchase","customers","active","response","practice","hardware","figure","materials","fire","holiday","chat","enough","designed","along","among","death","writing","speed","html","countries","loss","face","brand","discount","higher","effects","created","remember","standards","oil","bit","yellow","political","increase","advertise","kingdom","base","near","environmental","thought","stuff","french","storage","oh","japan","doing","loans","shoes","entry","stay","nature","orders","availability"];
+  var ODD = {"pm":"a","c":"a","e":"a","x":"a","n":"a","re":"a","b":"a","t":"a","jan":"a","d":"a","m":"a","r":"a","de":"a","p":"a","f":"a","ebay":"n","dvd":"a","l":"a","w":"a","o":"a","uk":"a","g":"a","h":"a","usa":"a","v":"a","john":"n","k":"a","y":"a","cd":"a","york":"n","j":"a","u":"a","canada":"n","tv":"a","la":"a","yahoo":"n","dec":"a","pc":"a","san":"a","q":"a","america":"n","ii":"a","z":"a","ca":"a","texas":"n","oct":"a","nov":"a","al":"a","china":"n","london":"n","washington":"n","rss":"a","id":"a","california":"n","co":"a","australia":"n","faq":"a","david":"n","feb":"a","sep":"a","et":"a","mar":"a","france":"n","microsoft":"n","st":"a","url":"a","aug":"a","apr":"a","europe":"n","en":"a","germany":"n","linux":"n","jul":"a","james":"n","jun":"a","india":"n","michael":"n","paul":"n","sony":"n","google":"n","html":"a","japan":"n"};
+  var FIELDS = ['pron', 'trans', 'assoc'];
+  var LABELS = { pron: 'Pronunciación', trans: 'Traducción', assoc: 'Asociación' };
+  var HINTS = { pron: 'ej. UÓ-ter', trans: 'en español', assoc: 'una idea para recordarla' };
+  var LIM = { pron: 40, trans: 120, assoc: 200 };
+  var BATCH = 12, MAX_RUN = 120;
+  var STORE_KEY = 'tabla-vocabulario-v1';
+  var SPEAKER = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+
+  var RANK = {};
+  WORDS.forEach(function (w, i) { RANK[w] = i + 1; });
+
+  function $(id) { return document.getElementById(id); }
+  var list = $('rows'), q = $('q'), groupSel = $('group'), stateSel = $('state');
+  var autoAll = $('auto-all'), stopBtn = $('stop'), statusEl = $('status'), saveEl = $('save');
+  var emptyEl = $('empty'), headEl = $('head'), noteAuto = $('note-auto');
+
+  var S = {};        // palabra -> entrada
+  var rows = {};     // palabra -> elemento de la fila
+  var timers = {}, inflight = {}, dirty = {};
+  var mode = 'local', coll = null, sample = null;
+  var working = false, ctl = null;
+
+  function ent(w) {
+    if (!S[w]) S[w] = { pron: '', trans: '', assoc: '', auto: { pron: false, trans: false, assoc: false } };
+    return S[w];
+  }
+  function isDone(e) { return FIELDS.every(function (f) { return e[f].trim() !== ''; }); }
+  function str(v, max) { return typeof v === 'string' ? v.replace(/\s+/g, ' ').trim().slice(0, max) : ''; }
+
+  function say(text, isErr) {
+    statusEl.textContent = text || '';
+    statusEl.className = 'status' + (isErr ? ' err' : '');
+  }
+  function saveState(text, isErr) {
+    saveEl.textContent = text || '';
+    saveEl.className = 'save' + (isErr ? ' err' : '');
+  }
+
+  /* ---------- construcción de filas ---------- */
+  function cell(f, r) {
+    var attrs = ' id="' + f + '-' + r + '" data-f="' + f + '" placeholder="' + HINTS[f] + '" autocomplete="off" autocapitalize="off" spellcheck="false"';
+    var ctrl = f === 'assoc' ? '<textarea' + attrs + ' rows="3"></textarea>' : '<input type="text"' + attrs + '>';
+    return '<label class="cell" data-cell="' + f + '"><span class="lab">' + LABELS[f] + '</span>' + ctrl + '</label>';
+  }
+  function buildRow(w, i) {
+    var r = i + 1;
+    var row = document.createElement('div');
+    row.className = 'row' + (ODD[w] === 'a' ? ' abbr' : ODD[w] === 'n' ? ' name' : '');
+    row.dataset.w = w;
+    row.dataset.band = String(Math.floor(i / 100));
+    row.innerHTML =
+      '<div class="rk mono">' + r + '</div>' +
+      '<div class="wd"><button type="button" class="say" data-act="say" aria-label="Escuchar la pronunciación">' + SPEAKER + '</button><span class="word"></span></div>' +
+      cell('pron', r) + cell('trans', r) + cell('assoc', r) +
+      '<div class="act"><button type="button" class="btn small" data-act="auto" hidden></button><button type="button" class="btn small ghost" data-act="ok" hidden>Aceptar</button></div>';
+    row.querySelector('.word').textContent = w;
+    return row;
+  }
+  var frag = document.createDocumentFragment();
+  WORDS.forEach(function (w, i) { var row = buildRow(w, i); rows[w] = row; frag.appendChild(row); });
+  list.appendChild(frag);
+
+  function refreshRow(w, skipFocus) {
+    var row = rows[w], e = ent(w), anyAuto = false;
+    FIELDS.forEach(function (f) {
+      var el = row.querySelector('[data-f="' + f + '"]');
+      if (!(skipFocus && document.activeElement === el) && el.value !== e[f]) el.value = e[f];
+      var isAuto = !!e.auto[f] && e[f].trim() !== '';
+      row.querySelector('[data-cell="' + f + '"]').classList.toggle('auto', isAuto);
+      if (isAuto) anyAuto = true;
+    });
+    var done = isDone(e);
+    row.classList.toggle('done', done);
+    row.querySelector('[data-act="ok"]').hidden = !anyAuto;
+    var auto = row.querySelector('[data-act="auto"]');
+    if (!sample) { auto.hidden = true; }
+    else if (!done) { auto.hidden = false; auto.textContent = 'Auto'; auto.dataset.mode = 'fill'; auto.title = 'Completar las casillas vacías automáticamente'; }
+    else if (e.auto.assoc) { auto.hidden = false; auto.textContent = 'Otra idea'; auto.dataset.mode = 'again'; auto.title = 'Pedir otra asociación'; }
+    else { auto.hidden = true; }
+  }
+  function refreshAll() { WORDS.forEach(function (w) { refreshRow(w, true); }); updateProgress(); }
+
+  function updateProgress() {
+    var n = 0;
+    WORDS.forEach(function (w) { if (isDone(ent(w))) n++; });
+    $('count').textContent = n;
+    $('bar').style.width = (n / WORDS.length * 100) + '%';
+  }
+
+  /* ---------- filtros ---------- */
+  function visibleWords() { return WORDS.filter(function (w) { return !rows[w].hidden; }); }
+  function hasEmpty(w) { return !isDone(ent(w)); }
+  function updateAutoCount() {
+    if (!sample) { autoAll.hidden = true; noteAuto.hidden = true; return; }
+    autoAll.hidden = false; noteAuto.hidden = false;
+    var n = visibleWords().filter(hasEmpty).length;
+    autoAll.textContent = n ? 'Autocompletar las vacías (' + Math.min(n, MAX_RUN) + ')' : 'Autocompletar las vacías';
+    autoAll.disabled = working || n === 0;
+  }
+  function applyFilters() {
+    var term = q.value.trim().toLowerCase();
+    var numeric = /^\d+$/.test(term);
+    var band = groupSel.value, st = stateSel.value, shown = 0;
+    WORDS.forEach(function (w, i) {
+      var row = rows[w], e = ent(w);
+      var ok = term ? true : (band === 'all' || row.dataset.band === band);
+      if (ok && term) {
+        ok = numeric ? String(i + 1) === term : (w.indexOf(term) !== -1 || FIELDS.some(function (f) { return e[f].toLowerCase().indexOf(term) !== -1; }));
+      }
+      if (ok && st === 'todo') ok = !isDone(e);
+      if (ok && st === 'done') ok = isDone(e);
+      row.hidden = !ok;
+      if (ok) shown++;
+    });
+    emptyEl.hidden = shown > 0;
+    headEl.hidden = shown === 0;
+    updateAutoCount();
+  }
+  [q, groupSel, stateSel].forEach(function (el) {
+    el.addEventListener('input', applyFilters);
+    el.addEventListener('change', applyFilters);
+  });
+
+  /* ---------- guardado ---------- */
+  function saveLocal() {
+    var out = {};
+    WORDS.forEach(function (w) {
+      var e = S[w];
+      if (e && FIELDS.some(function (f) { return e[f].trim(); })) out[w] = { pron: e.pron, trans: e.trans, assoc: e.assoc, auto: e.auto };
+    });
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(out)); return true; } catch (err) { return false; }
+  }
+  function loadLocal() {
+    try {
+      var raw = localStorage.getItem(STORE_KEY);
+      if (!raw) return;
+      var data = JSON.parse(raw);
+      Object.keys(data).forEach(function (w) { if (RANK[w]) S[w] = fromDoc(data[w]); });
+    } catch (err) {}
+  }
+  function fromDoc(d) {
+    d = d || {};
+    var a = d.auto || {};
+    return {
+      pron: str(d.pron, LIM.pron), trans: str(d.trans, LIM.trans), assoc: str(d.assoc, LIM.assoc),
+      auto: { pron: !!a.pron, trans: !!a.trans, assoc: !!a.assoc }
+    };
+  }
+  function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+  async function persist(w) {
+    if (mode !== 'db') {
+      if (saveLocal()) saveState('Guardado en este navegador');
+      else saveState('No se pudo guardar en este navegador', true);
+      return;
+    }
+    if (inflight[w]) { dirty[w] = true; return; }
+    inflight[w] = true;
+    saveState('Guardando…');
+    try {
+      do {
+        dirty[w] = false;
+        var e = ent(w), ref = coll.doc(w), tries = 0;
+        for (;;) {
+          try {
+            if (!FIELDS.some(function (f) { return e[f].trim(); })) await ref.delete();
+            else await ref.set({ w: w, r: RANK[w], pron: e.pron, trans: e.trans, assoc: e.assoc, auto: { pron: !!e.auto.pron, trans: !!e.auto.trans, assoc: !!e.auto.assoc }, u: Date.now() });
+            break;
+          } catch (err) {
+            if (err && err.code === 'unavailable' && tries < 1) { tries++; await wait(600 + Math.random() * 600); continue; }
+            throw err;
+          }
+        }
+      } while (dirty[w]);
+      saveState('Guardado');
+    } catch (err) {
+      var code = err && err.code;
+      saveState(code === 'quota_exceeded' ? 'No hay espacio para guardar más' : 'No se pudo guardar. Revisa tu conexión.', true);
+    } finally {
+      inflight[w] = false;
+    }
+  }
+  function schedule(w, ms) {
+    clearTimeout(timers[w]);
+    saveState('Guardando…');
+    timers[w] = setTimeout(function () { delete timers[w]; persist(w); }, ms);
+  }
+  function flushNow(w) {
+    if (timers[w]) { clearTimeout(timers[w]); delete timers[w]; }
+    persist(w);
+  }
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState !== 'hidden') return;
+    Object.keys(timers).forEach(flushNow);
+  });
+
+  /* ---------- eventos de la tabla ---------- */
+  list.addEventListener('input', function (ev) {
+    var el = ev.target, f = el.dataset && el.dataset.f;
+    if (!f) return;
+    var w = el.closest('.row').dataset.w, e = ent(w);
+    e[f] = el.value;
+    e.auto[f] = false;
+    refreshRow(w, true);
+    updateProgress();
+    updateAutoCount();
+    schedule(w, 700);
+  });
+  list.addEventListener('focusout', function (ev) {
+    var row = ev.target.closest ? ev.target.closest('.row') : null;
+    if (row && timers[row.dataset.w]) flushNow(row.dataset.w);
+  });
+  list.addEventListener('click', function (ev) {
+    var b = ev.target.closest ? ev.target.closest('[data-act]') : null;
+    if (!b) return;
+    var w = b.closest('.row').dataset.w, act = b.dataset.act;
+    if (act === 'say') speak(w);
+    else if (act === 'ok') {
+      var e = ent(w);
+      FIELDS.forEach(function (f) { e.auto[f] = false; });
+      refreshRow(w, true);
+      flushNow(w);
+    } else if (act === 'auto') autoOne(w, b.dataset.mode);
+  });
+
+  function speak(w) {
+    try {
+      if (!window.speechSynthesis) { say('Tu navegador no puede leer palabras en voz alta.', true); return; }
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(w);
+      u.lang = 'en-US';
+      u.rate = 0.85;
+      window.speechSynthesis.speak(u);
+    } catch (err) { say('No se pudo reproducir el sonido.', true); }
+  }
+
+  /* ---------- autocompletar ---------- */
+  var INSTR =
+    'Eres profesor de inglés de una persona colombiana con nivel A1 (principiante). ' +
+    'Para cada palabra en inglés de la lista devuelve un objeto JSON con estos campos:\n' +
+    '- w: la palabra tal cual.\n' +
+    '- pron: cómo se pronuncia, escrito con letras que un hispanohablante lea bien, en sílabas separadas por guiones y la sílaba fuerte en MAYÚSCULAS. Ejemplo: water → UÓ-ter. Máximo 20 caracteres.\n' +
+    '- trans: traducción al español, los 1 a 3 significados más comunes separados por " / ". Si es una letra suelta, abreviatura, sigla o nombre propio, dilo en pocas palabras (por ejemplo "abreviatura de ...").\n' +
+    '- assoc: una asociación fácil de recordar que conecte cómo suena la palabra en inglés con una palabra o escena real de la vida diaria en Colombia. Una sola frase corta (máximo 90 caracteres), concreta, nada abstracta. Ejemplo: dog → "Suena a dogo, el perro dogo argentino."\n' +
+    'Responde solo con un arreglo JSON de objetos, en el mismo orden de la lista, sin texto extra.';
+
+  function buildPrompt(words, avoid) {
+    var lines = words.map(function (w) {
+      var a = avoid && avoid[w];
+      return a ? w + '  (da una asociación distinta a esta: ' + a + ')' : w;
+    });
+    return INSTR + '\n\nPalabras:\n' + lines.join('\n');
+  }
+  function byWord(arr) {
+    var m = {};
+    if (Array.isArray(arr)) arr.forEach(function (o) { if (o && typeof o.w === 'string') m[o.w.trim().toLowerCase()] = o; });
+    return m;
+  }
+  function applyResult(w, res, replaceAssoc) {
+    if (!res) return false;
+    var e = ent(w), changed = false;
+    FIELDS.forEach(function (f) {
+      var v = str(res[f], LIM[f]);
+      if (!v) return;
+      if (replaceAssoc) {
+        if (f === 'assoc' && e.auto.assoc) { e.assoc = v; changed = true; }
+        return;
+      }
+      if (!e[f].trim()) { e[f] = v; e.auto[f] = true; changed = true; }
+    });
+    if (changed) { refreshRow(w, true); updateProgress(); flushNow(w); }
+    return changed;
+  }
+  function handleSampleError(err) {
+    var code = err && err.code;
+    if (code === 'cancelled') { say('Detenido. Lo que ya se completó quedó guardado.'); return; }
+    if (code === 'not_granted' || code === 'sampling_disabled' || code === 'not_declared' || code === 'capability_disabled' || code === 'capability_removed') {
+      sample = null;
+      refreshAll();
+      updateAutoCount();
+      say('El autocompletado no está disponible aquí. Puedes seguir llenando la tabla a mano.', true);
+    } else if (code === 'rate_limited') say('Hiciste muchas peticiones seguidas. Espera un momento y vuelve a intentarlo.', true);
+    else if (code === 'session_expired') say('Tu sesión venció. Vuelve a iniciar sesión.', true);
+    else if (code === 'refused' || code === 'empty_completion' || code === 'invalid_json') say('No se pudieron completar esas palabras. Prueba otra vez.', true);
+    else say('Falló la conexión. Puedes intentarlo de nuevo.', true);
+  }
+
+  async function autoOne(w, how) {
+    if (!sample) return;
+    if (working) { say('Espera a que termine lo anterior.'); return; }
+    working = true;
+    updateAutoCount();
+    var btn = rows[w].querySelector('[data-act="auto"]');
+    btn.disabled = true;
+    btn.textContent = '…';
+    var avoid = null;
+    if (how === 'again') { avoid = {}; avoid[w] = ent(w).assoc; }
+    say('Pensando en «' + w + '»…');
+    try {
+      var res = await sample.json(buildPrompt([w], avoid), { modelTier: 'quick', cache: false });
+      var ok = applyResult(w, byWord(res)[w], how === 'again');
+      say(ok ? 'Listo: «' + w + '» tiene sugerencias nuevas.' : 'No hubo nada nuevo para «' + w + '».');
+    } catch (err) {
+      handleSampleError(err);
+    } finally {
+      working = false;
+      btn.disabled = false;
+      refreshRow(w, true);
+      updateAutoCount();
+    }
+  }
+
+  async function runAll() {
+    if (!sample || working) return;
+    var all = visibleWords().filter(hasEmpty);
+    var targets = all.slice(0, MAX_RUN);
+    if (!targets.length) return;
+    working = true;
+    ctl = new AbortController();
+    stopBtn.hidden = false;
+    autoAll.disabled = true;
+    var filled = 0, failed = 0, aborted = false;
+    try {
+      for (var i = 0; i < targets.length; i += BATCH) {
+        var batch = targets.slice(i, i + BATCH);
+        say('Completando ' + (i + 1) + '–' + (i + batch.length) + ' de ' + targets.length + '…');
+        try {
+          var res = await sample.json(buildPrompt(batch), { modelTier: 'quick', cache: false, signal: ctl.signal });
+          var m = byWord(res);
+          batch.forEach(function (w) { if (applyResult(w, m[w], false)) filled++; else failed++; });
+        } catch (err) {
+          if (err && err.code === 'invalid_json') { failed += batch.length; continue; }
+          throw err;
+        }
+      }
+      var more = all.length - targets.length;
+      say('Listo: se completaron ' + filled + ' palabras' + (failed ? ' y ' + failed + ' no se pudieron' : '') + '.' + (more > 0 ? ' Quedan ' + more + ' más: vuelve a pulsar el botón.' : ''));
+    } catch (err) {
+      aborted = true;
+      handleSampleError(err);
+    } finally {
+      working = false;
+      ctl = null;
+      stopBtn.hidden = true;
+      updateAutoCount();
+    }
+  }
+  autoAll.addEventListener('click', runAll);
+  stopBtn.addEventListener('click', function () { if (ctl) ctl.abort(); });
+
+  /* ---------- arranque ---------- */
+  function subscribe() {
+    var timer = setTimeout(function () { say('Todavía no se pueden leer tus palabras guardadas. Lo que ves puede no estar al día.', true); }, 10000);
+    say('Cargando tus palabras…');
+    coll.onSnapshot(function (snap) {
+      snap.docChanges().forEach(function (ch) {
+        var w = ch.doc.id;
+        if (!RANK[w] || inflight[w] || timers[w]) return;
+        if (ch.type === 'removed') delete S[w];
+        else S[w] = fromDoc(ch.doc.data());
+        refreshRow(w, true);
+      });
+      updateProgress();
+      updateAutoCount();
+      if (!snap.metadata.fromCache) { clearTimeout(timer); say(''); }
+    }, function () {
+      clearTimeout(timer);
+      say('No se pudieron leer tus palabras guardadas. Recarga la página para intentarlo de nuevo.', true);
+    });
+  }
+
+  async function init() {
+    applyFilters();
+    updateProgress();
+    var C = window.claude;
+    var caps = [null, null, null];
+    if (C && C.use) {
+      caps = await Promise.all([C.use('sample'), C.use('db'), C.use('user')].map(function (p) { return p.catch(function () { return null; }); }));
+    }
+    sample = caps[0];
+    var db = caps[1], user = caps[2], uid = null;
+    if (user) { try { uid = await user.id(); } catch (err) { uid = null; } }
+    if (db && uid) {
+      mode = 'db';
+      coll = db.doc('data/users/' + uid + '/vocab').collection('words');
+      subscribe();
+    } else {
+      mode = 'local';
+      loadLocal();
+      say('Tus palabras se guardan solo en este navegador.');
+    }
+    refreshAll();
+    updateAutoCount();
+  }
+
+  /* ---------- respaldo: descargar / cargar ---------- */
+  var LAST_KEY = 'tabla-vocabulario-ultimo-respaldo';
+  var lastEl = $('last-backup'), fileIn = $('import-file');
+  function snapshot() {
+    var out = {};
+    WORDS.forEach(function (w) {
+      var e = S[w];
+      if (e && FIELDS.some(function (f) { return e[f].trim(); })) out[w] = { pron: e.pron, trans: e.trans, assoc: e.assoc, auto: e.auto };
+    });
+    return out;
+  }
+  function showLast() {
+    var t = null;
+    try { t = parseInt(localStorage.getItem(LAST_KEY), 10); } catch (err) {}
+    lastEl.textContent = t ? 'Último respaldo: ' + new Date(t).toLocaleString('es', { dateStyle: 'medium', timeStyle: 'short' }) : 'Aún no has descargado ningún respaldo.';
+  }
+  $('export-btn').addEventListener('click', function () {
+    var words = snapshot(), n = Object.keys(words).length;
+    if (!n) { say('Todavía no hay nada que respaldar: escribe algo en la tabla primero.', true); return; }
+    var payload = { app: 'tabla-vocabulario', version: 1, exportado: new Date().toISOString(), palabras: words };
+    var blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'progreso-vocabulario-' + new Date().toISOString().slice(0, 10) + '.json';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+    try { localStorage.setItem(LAST_KEY, String(Date.now())); } catch (err) {}
+    showLast();
+    say('Listo: se descargó un respaldo con ' + n + ' palabras. Búscalo en tu carpeta de Descargas.');
+  });
+  $('import-btn').addEventListener('click', function () { fileIn.click(); });
+  fileIn.addEventListener('change', function () {
+    var f = fileIn.files && fileIn.files[0];
+    fileIn.value = '';
+    if (!f) return;
+    var rd = new FileReader();
+    rd.onerror = function () { say('No se pudo leer el archivo.', true); };
+    rd.onload = function () {
+      var data;
+      try { data = JSON.parse(rd.result); } catch (err) { say('Ese archivo no es un respaldo válido. Debe ser un .json descargado desde esta página.', true); return; }
+      var src = data && data.palabras ? data.palabras : data;
+      var keys = src && typeof src === 'object' ? Object.keys(src).filter(function (w) { return RANK[w]; }) : [];
+      if (!keys.length) { say('El archivo no contiene palabras de esta tabla.', true); return; }
+      if (!confirm('Se cargarán ' + keys.length + ' palabras del archivo.\n\nLas que ya tengas con el mismo nombre se reemplazarán; las demás no cambian. ¿Continuar?')) return;
+      keys.forEach(function (w) { S[w] = fromDoc(src[w]); });
+      if (mode === 'db') keys.forEach(function (w) { persist(w); });
+      else if (saveLocal()) saveState('Guardado en este navegador');
+      refreshAll(); updateAutoCount(); applyFilters();
+      say('Listo: se cargaron ' + keys.length + ' palabras desde tu respaldo.');
+    };
+    rd.readAsText(f);
+  });
+  showLast();
+
+  init();
+})();
+</script>
+</body>
+</html>
